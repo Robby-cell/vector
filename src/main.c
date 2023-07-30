@@ -23,8 +23,6 @@ int main(int argc, char **argv) {
   int b = 87;
   push_back(&vector, &b);
 
-  puts("hello");
-
   apply_to_all(&vector, &mutate);
 
   apply_to_all(&vector, &show);
