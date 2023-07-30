@@ -18,7 +18,7 @@ void show(void *input) {
 
 // another idea...
 void *create_ptr(int value) {
-  void *ptr = malloc(sizeof(int));
+  void *ptr = malloc(sizeof(value));
   *(int *)ptr = value;
   return ptr;
 }
