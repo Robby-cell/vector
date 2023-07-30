@@ -25,8 +25,10 @@ void *create_ptr(int value) {
 
 // and ofc...
 void free_ptr(void *input) {
-  if (input != NULL)
-    free(((struct Entry *)input)->value);
+  struct Entry *entry = (struct Entry *)input;
+
+  if (input != NULL && entry->value != NULL)
+    free(entry->value);
 }
 
 int main(int argc, char **argv) {
