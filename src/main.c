@@ -2,6 +2,7 @@
 
 #include <stddef.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 void mutate(void *input) {
   struct Entry *entry = (struct Entry *)input;
@@ -15,17 +16,30 @@ void show(void *input) {
   printf("\t%d", *(int *)entry->value);
 }
 
+// another idea...
+void *create_ptr(int value) {
+  void *ptr = malloc(sizeof(int));
+  *(int *)ptr = value;
+  return ptr;
+}
+
+// and ofc...
+void free_ptr(void *input) {
+  if (input != NULL)
+    free(((struct Entry *)input)->value);
+}
+
 int main(int argc, char **argv) {
   struct Vector vector = new_vector();
 
-  int a = 7;
-  push_back(&vector, &a);
-  int b = 87;
-  push_back(&vector, &b);
+  push_back(&vector, create_ptr(89));
+  push_back(&vector, create_ptr(44));
 
   apply_to_all(&vector, &mutate);
 
   apply_to_all(&vector, &show);
+
+  apply_to_all(&vector, &free_ptr);
 
   free_entries(&vector);
 

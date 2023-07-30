@@ -3,6 +3,7 @@
 #include <memory.h>
 #include <stdbool.h>
 #include <stddef.h>
+#include <stdio.h>
 #include <stdlib.h>
 
 struct Entry new_entry(void *value) {
@@ -32,6 +33,8 @@ void push_back(struct Vector *vector, void *value) {
     if (new_allocation != NULL) {
       vector->capacity += 1;
       vector->entries = (struct Entry *)new_allocation;
+    } else {
+      fputs("Reallocation failed. could not extend the vector.", stderr);
     }
   };
 
