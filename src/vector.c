@@ -44,6 +44,19 @@ void push_back(struct Vector *vector, void *value) {
   vector->length += 1;
 }
 
+struct Entry pop_back(struct Vector *vector) {
+  if (vector->length < 1)
+    return (struct Entry){
+        .value = NULL,
+    };
+
+  struct Entry popped = (struct Entry)vector->entries[vector->length];
+
+  vector->length -= 1;
+
+  return popped;
+}
+
 struct Entry *get(struct Vector *vector, size_t index) {
   if (vector->length > index)
     return &vector->entries[index];

@@ -38,6 +38,8 @@ int main(int argc, char **argv) {
   push_back(&vector, create_ptr(89));
   push_back(&vector, create_ptr(44));
 
+  pop_back(&vector);
+
   apply_to_all(&vector, &mutate);
 
   apply_to_all(&vector, &show);

@@ -47,6 +47,11 @@ struct Vector new_vector();
 void push_back(struct Vector *, void *);
 
 ///
+/// pops the element at the end
+///
+struct Entry pop_back(struct Vector *);
+
+///
 /// gets an entry at a particular index, NULL if
 /// it does not exist
 ///   ;
