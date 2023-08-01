@@ -50,7 +50,7 @@ struct Entry pop_back(struct Vector *vector) {
         .value = NULL,
     };
 
-  struct Entry popped = (struct Entry)vector->entries[vector->length];
+  struct Entry popped = (struct Entry)vector->entries[vector->length - 1];
 
   vector->length -= 1;
 
