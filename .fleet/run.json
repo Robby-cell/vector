@@ -1,0 +1,49 @@
+{
+    "configurations": [
+        {
+            "type": "command",
+            "name": "Command configuration",
+            "program": "/bin/make",
+            "args": [
+                //                "src/main.c",
+                //                "src/vector.c",
+                //                "-o",
+                //                "bin/fleet"
+            ],
+        },
+        {
+            "type": "command",
+            "name": "run",
+            "dependsOn": [
+                "Command configuration"
+            ],
+            "program": "bin/main",
+            "args": [],
+        },
+        {
+            "type": "command",
+            "name": "clean",
+            "program": "/bin/make",
+            "args": [
+                "clean"
+            ],
+        },
+        {
+            "type": "command",
+            "name": "compile debug",
+            "program": "/bin/make",
+            "args": [
+                "debug"
+            ],
+        },
+        {
+            "type": "command",
+            "name": "debug",
+            "program": "/bin/gdb",
+            "dependsOn": [
+                "compile debug"
+            ],
+            "args": ["./bin/debug"],
+        }
+    ]
+}

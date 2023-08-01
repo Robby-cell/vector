@@ -32,9 +32,17 @@ struct Vector new_vector();
 ///
 /// pushes a value to the to back, wrapped in the entry struct
 ///   ;
+///   //
+///   // before push_back
+///   //   vector == "some", "words" (that is, the contents of the wrappers)
+///   //
 ///   void *pushedBack = malloc(sizeof(const char*));
 ///   (const char*)*pushedBack = "hello world";
 ///   push_back(&vector, pushedBack);
+///   //
+///   // after:
+///   //   vector == "some", "words", "hello world"
+///   //
 ///
 void push_back(struct Vector *, void *);
 
@@ -49,7 +57,9 @@ void push_back(struct Vector *, void *);
 ///
 struct Entry *get(struct Vector *, size_t);
 
+///
 /// frees the memory allocated on the heap...
+///
 void free_entries(struct Vector *);
 
 /// applies a function to all entries

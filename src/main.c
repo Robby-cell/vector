@@ -7,13 +7,14 @@
 void mutate(void *input) {
   struct Entry *entry = (struct Entry *)input;
 
-  *(int *)entry->value += 10;
+  if (entry != NULL)
+    *(int *)entry->value += 10;
 }
 
 void show(void *input) {
   struct Entry *entry = (struct Entry *)input;
 
-  printf("\t%d", *(int *)entry->value);
+  printf("%d  ", *(int *)entry->value);
 }
 
 // another idea...
