@@ -38,7 +38,10 @@ int main(int argc, char **argv) {
   push_back(&vector, create_ptr(89));
   push_back(&vector, create_ptr(44));
 
-  pop_back(&vector);
+  struct Entry output = pop_back(&vector);
+  show(&output);
+  free_ptr(&output);
+  printf("\nafter popped:\n");
 
   apply_to_all(&vector, &mutate);
 
