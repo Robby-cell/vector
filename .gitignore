@@ -2,3 +2,4 @@
 !bin/.gitkeep
 /obj
 !obj/.gitkeep
+/.fleet
